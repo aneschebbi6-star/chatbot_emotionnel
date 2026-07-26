@@ -70,9 +70,9 @@ REPONSES = {
 
 - [x] **v0.1.0** — Chatbot par mots-clés + interface Streamlit + historique de session
 - [ ] **v0.2.0** — Expressions régulières (`re`) pour mieux gérer les variantes de mots et les fautes
-- [ ] **v0.3.0** — Connexion à une vraie API d'IA (Claude) pour des réponses plus naturelles
-- [ ] **v0.4.0** — Déploiement public (Streamlit Community Cloud)
-- [ ] **v1.0.0** — Tests unitaires + sauvegarde de l'historique (fichier ou base de données)
+- [ ] **v0.3.0** — Connexion à une vraie API d'IA pour des réponses plus naturelles
+- [ ] **v0.4.0** — Déploiement public 
+- [ ] **v1.0.0** — Tests unitaires + sauvegarde de l'historique)
 
 ## 📄 Licence
 
