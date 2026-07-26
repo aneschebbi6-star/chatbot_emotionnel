@@ -1,0 +1,55 @@
+
+
+import random
+import streamlit as st 
+
+st.title("chatbot de soutien emotionnel (demo)")
+
+if "historique" not in st.session_state:
+    st.session_state.historique = []
+
+if "message_count" not in st.session_state:
+    st.session_state.message_count = 0
+
+message = st.text_input("ecrire un message : ", key=f"message_{st.session_state.message_count}")
+message = message.lower()
+
+if message:
+    if "au revoir" in message:
+        reponse = "Au revoir, prenez soin de vous !"
+
+    elif "hello" in message or "bonjour" in message:
+        reponses = ["Bonjour !", "Salut, comment allez-vous ?"]
+        reponse = random.choice(reponses)
+
+    elif "triste" in message:
+        reponses = [
+            "Pourquoi vous sentez-vous triste ?",
+            "Depuis quand ressentez-vous cette tristesse ?",
+            "Voulez-vous m'en dire plus ?"
+        ]
+        reponse = random.choice(reponses)
+
+    elif "content" in message or "heureux" in message:
+        reponses = [
+            "C'est une bonne nouvelle ! Qu'est-ce qui vous rend content ?",
+            "Je suis content de l'entendre. Racontez-moi."
+        ]
+        reponse = random.choice(reponses)
+
+    elif "peur" in message:
+        reponses = ["De quoi avez-vous peur ?", "Cette peur, à quand remonte-t-elle ?"]
+        reponse = random.choice(reponses)
+
+    else:
+        reponses = ["Dites m'en un peu plus...", "Continuez, je vous écoute.", "Intéressant, et ensuite ?"]
+        reponse = random.choice(reponses)
+
+    st.session_state.historique.append(("Toi", message))
+    st.session_state.historique.append(("Bot", reponse))
+    st.session_state.message_count += 1
+    st.rerun()
+
+
+for auteur, texte in st.session_state.historique:
+    st.write(f"**{auteur} :** {texte}")
